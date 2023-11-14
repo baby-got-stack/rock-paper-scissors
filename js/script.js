@@ -8,8 +8,8 @@
 // at the end of five rounds, determine who has won most
 // return the overall winner of the five round match
 
-const playerSelection = prompt('Enter your pick');
-const computerSelection = getComputerChoice();
+let playerSelection = 'rock';
+let computerSelection = getComputerChoice();
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 10) + 1;
@@ -42,11 +42,7 @@ function playOneRound(playerSelection, computerSelection) {
         endOfGameMessage = 'You lose! Scissors beats Paper.';
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
         endOfGameMessage = 'You lose! Rock beats Scissors.';
-    } else if (playerSelection === 'rock' && computerSelection === 'rock') {
-        endOfGameMessage = `It's a tie!`;
-    } else if (playerSelection === 'paper' && computerSelection === 'paper') {
-        endOfGameMessage = `It's a tie!`;
-    } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
+    } else if (playerSelection === computerSelection) {
         endOfGameMessage = `It's a tie!`;
     } else {
         endOfGameMessage = 'You entered an invalid option. Please enter Rock, Paper, or Scissors.';
@@ -59,6 +55,8 @@ function game() {
     let userWins = 0;
     let computerWins = 0;
     let grandWinner = 'We do not know who wil win yet';
+    computerSelection = getComputerChoice();
+    playerSelection = prompt();
 
     playOneRound(playerSelection, computerSelection);
     if (playOneRound(playerSelection, computerSelection) === 'You win! Rock beats Scissors.' || playOneRound(playerSelection, computerSelection) === 'You win! Paper beats Rock.' || playOneRound(playerSelection, computerSelection) === 'You win! Scissors beats Paper.') {
@@ -73,6 +71,9 @@ function game() {
         console.log('You entered an invalid option. Please try again.');
     }
 
+    computerSelection = getComputerChoice();
+    playerSelection = prompt();
+
     playOneRound(playerSelection, computerSelection);
     if (playOneRound(playerSelection, computerSelection) === 'You win! Rock beats Scissors.' || playOneRound(playerSelection, computerSelection) === 'You win! Paper beats Rock.' || playOneRound(playerSelection, computerSelection) === 'You win! Scissors beats Paper.') {
         userWins++;
@@ -82,6 +83,54 @@ function game() {
     } else if (playOneRound(playerSelection, computerSelection) === 'You lose! Rock beats Scissors.' || playOneRound(playerSelection, computerSelection) === 'You lose! Paper beats Rock.' || playOneRound(playerSelection, computerSelection) === 'You lose! Scissors beats Paper.') {
         computerWins++;
         console.log('The computer won the second round.');
+    } else {
+        console.log('You entered an invalid option. Please try again.');
+    }
+
+    computerSelection = getComputerChoice();
+    playerSelection = prompt();
+
+    playOneRound(playerSelection, computerSelection);
+    if (playOneRound(playerSelection, computerSelection) === 'You win! Rock beats Scissors.' || playOneRound(playerSelection, computerSelection) === 'You win! Paper beats Rock.' || playOneRound(playerSelection, computerSelection) === 'You win! Scissors beats Paper.') {
+        userWins++;
+        console.log('The user won the third round.');
+    } else if (playOneRound(playerSelection, computerSelection) === `It's a tie!`) {
+        console.log('The second third was a tie.');
+    } else if (playOneRound(playerSelection, computerSelection) === 'You lose! Rock beats Scissors.' || playOneRound(playerSelection, computerSelection) === 'You lose! Paper beats Rock.' || playOneRound(playerSelection, computerSelection) === 'You lose! Scissors beats Paper.') {
+        computerWins++;
+        console.log('The computer won the third round.');
+    } else {
+        console.log('You entered an invalid option. Please try again.');
+    }
+
+    computerSelection = getComputerChoice();
+    playerSelection = prompt();
+
+    playOneRound(playerSelection, computerSelection);
+    if (playOneRound(playerSelection, computerSelection) === 'You win! Rock beats Scissors.' || playOneRound(playerSelection, computerSelection) === 'You win! Paper beats Rock.' || playOneRound(playerSelection, computerSelection) === 'You win! Scissors beats Paper.') {
+        userWins++;
+        console.log('The user won the fourth round.');
+    } else if (playOneRound(playerSelection, computerSelection) === `It's a tie!`) {
+        console.log('The fourth round was a tie.');
+    } else if (playOneRound(playerSelection, computerSelection) === 'You lose! Rock beats Scissors.' || playOneRound(playerSelection, computerSelection) === 'You lose! Paper beats Rock.' || playOneRound(playerSelection, computerSelection) === 'You lose! Scissors beats Paper.') {
+        computerWins++;
+        console.log('The computer won the fourth round.');
+    } else {
+        console.log('You entered an invalid option. Please try again.');
+    }
+
+    computerSelection = getComputerChoice();
+    playerSelection = prompt();
+
+    playOneRound(playerSelection, computerSelection);
+    if (playOneRound(playerSelection, computerSelection) === 'You win! Rock beats Scissors.' || playOneRound(playerSelection, computerSelection) === 'You win! Paper beats Rock.' || playOneRound(playerSelection, computerSelection) === 'You win! Scissors beats Paper.') {
+        userWins++;
+        console.log('The user won the fifth round.');
+    } else if (playOneRound(playerSelection, computerSelection) === `It's a tie!`) {
+        console.log('The fifth round was a tie.');
+    } else if (playOneRound(playerSelection, computerSelection) === 'You lose! Rock beats Scissors.' || playOneRound(playerSelection, computerSelection) === 'You lose! Paper beats Rock.' || playOneRound(playerSelection, computerSelection) === 'You lose! Scissors beats Paper.') {
+        computerWins++;
+        console.log('The computer won the fifth round.');
     } else {
         console.log('You entered an invalid option. Please try again.');
     }
@@ -100,9 +149,3 @@ function game() {
 }
 
 console.log(game());
-
-/*
-console.log(playOneRound(playerSelection, computerSelection));
-console.log('The user chose ' + playerSelection);
-console.log('The computer chose ' + computerSelection);
-*/
