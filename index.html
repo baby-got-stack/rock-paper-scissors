@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Rock Paper Scissors console game</h1>
+    <h1>Rock Paper Scissors</h1>
+    <h4>Can you beat the computer? First player to 5 wins.</h4>
+    <div class="container">
+        <div class="winner"></div>
+        <div class="play-again-button hidden">Play Again</div>
+        <div class="choices-container">
+            <div class="button-item" id="rock">🪨</div>
+            <div class="button-item" id="paper">🧻</div>
+            <div class="button-item" id="scissors">✂️</div>
+        </div>
+        <div class="round-result"></div>
+    <div class="score-container">
+        <div class="your-score"></div>
+        <div class="computer-score"></div>
+    </div>
+    </div>
 </body>
 <script src="/js/script.js"></script>
 </html>
